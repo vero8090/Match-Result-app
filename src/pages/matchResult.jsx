@@ -12,10 +12,10 @@ export default function MatchResult() {
 
             let getData = {...response.data.data.match_result[0]}
             let emptyLoaderH = [...getData.hometeam.starting_lineup]
-            let emptyLoaderA = [...getData.awayteam.starting_lineup]
+            let emptyLoaderA =[...getData.awayteam.starting_lineup.reverse()]
             let arrayH = response.data.data.match_result[0].hometeam.formations.split('-')
             let arrayA = response.data.data.match_result[0].awayteam.formations.split('-')
-
+            console.log(arrayA)
             let loader = []
 
             arrayH.forEach((item) => {
@@ -25,10 +25,10 @@ export default function MatchResult() {
             setFormationH(loader)
             loader = []
             arrayA.forEach((item) => {
-                loader.unshift([...emptyLoaderA.slice(0, item)])
+                loader.unshift([...emptyLoaderA.slice(0, item)].reverse())
                 emptyLoaderA.splice(0, item)
             })
-
+            console.log(loader)
             setFormationA(loader)
         } catch (error) {
             console.log(error)
