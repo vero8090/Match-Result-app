@@ -11,8 +11,8 @@ export default function MatchResult() {
             console.log(response.data.data.match_result[0])
 
             let getData = {...response.data.data.match_result[0]}
-            let emptyLoaderH = getData.hometeam.starting_lineup
-            let emptyLoaderA = getData.awayteam.starting_lineup
+            let emptyLoaderH = [...getData.hometeam.starting_lineup]
+            let emptyLoaderA = [...getData.awayteam.starting_lineup]
             let arrayH = response.data.data.match_result[0].hometeam.formations.split('-')
             let arrayA = response.data.data.match_result[0].awayteam.formations.split('-')
 
